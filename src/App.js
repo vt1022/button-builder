@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Category from './components/Category.js'
+import './style/style.css';
 
-function App() {
+const App = () => {
+  // states:
+  const [ userBtnText, setUserBtnText ] = useState('');
+  //////////////////////////
+
+  // functions:
+  const handleButtonText = e => setUserBtnText(e.target.value);
+  /////////////////////////
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper">
+
+
+        <h1>Buttonator</h1>
+        {/* button styles controlled by css variables */}
+        <button className="user-btn">
+          <input type="text" className="user-btn__text" 
+          placeholder="type text here" aria-label="type your button text here"
+          value={userBtnText} onChange={handleButtonText}/>
+        </button>
+        <button className="save-btn btn">save ➕</button>
+
+        <div className="inputs">
+          <Category title="Colour">
+
+          </Category>
+
+          <Category title="Size">
+
+          </Category>
+
+          <Category title="Align">
+
+          </Category>
+        </div>
+
+      </div> {/* wrapper */}
     </div>
   );
 }

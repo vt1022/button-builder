@@ -1,0 +1,58 @@
+:root {
+  --btnWidth: 150px;
+  --btnHeight: 50px;
+  --btnBorderSize: 1px;
+  --btnBorderStyle: solid;
+  --btnBorderColor: #000;
+  --btnBorderRadius: 5px;
+  --btnColor: #c0ffee;
+
+  --btnTextAlign: center;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  &:focus {outline: 5px solid $color3;}
+}
+
+.wrapper {
+  @include flexCenter();
+  flex-direction: column;
+  text-align: center;
+
+  max-width: 1200px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.user-btn {
+  width: var(--btnWidth);
+  height: var(--btnHeight);
+  border: var(--btnBorderSize) var(--btnBorderStyle) var(--btnBorderColor);
+  border-radius: var(--btnBorderRadius);
+  background: var(--btnColor);
+  
+  &__text {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: var(--btnTextAlign);
+  }
+}

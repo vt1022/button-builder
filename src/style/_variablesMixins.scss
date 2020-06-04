@@ -1,0 +1,103 @@
+// import fonts
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&family=Krub&display=swap');
+// variables
+// font colours + pseudo states
+$white: #f6f6f6;
+$grey: #ccc;
+$black: #2e2e2e;
+$color1: #C0FF33;
+$color2: #FFE066;
+$color3: #38618C;
+$color4: #35A7FF;
+
+// mixins
+@mixin pseudo {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin pupil {
+  @include pseudo();
+  top: 50%;
+  left: 50%;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  border: 3px solid $black;
+  border-top: 1px solid $black;
+  border-left: 1px solid $black;
+  background: $white;
+  transform: translateX(-50%);
+}
+// css shine by Yu-Ting, Cheng on codepen
+@mixin cssShine {
+  background-repeat: no-repeat;
+  background-position: 100% 100%, 0 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 37%,
+    rgba(255, 255, 255, 0.8) 45%,
+    rgba(255, 255, 255, 0) 50%
+  );
+
+  background-size: 250% 250%, 100% 100%;
+  transition: background-position 0s ease;
+
+  &:hover {
+    background-position: 0 0, 0 0;
+    transition-duration: 1s;
+  }
+}
+// vertical + horizontal centering w/ flexbox
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// fonts
+@mixin fontSize($sizeValue){
+  // font sizes turn into rem values
+  font-size: $sizeValue * 1px;
+  font-size: ($sizeValue/10) * 1rem;
+}
+
+@mixin fontSans($size, $weight: 400, $color: $black) {
+  @include fontSize($size);
+  font-family: 'Krub', sans-serif;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin fontDisplay($size, $weight: 400, $color: $black) {
+  @include fontSize($size);
+  font-family: 'Delius Unicase', cursive;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin focusState() {
+    outline: 6px dotted $secondaryColor;
+}
+// might be useful
+@mixin position($type, $top: auto, $bottom: auto, $left: auto, $right: auto) {
+  position: $type;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+}
+
+@mixin overlay($color: #000000, $alpha: 0.7) {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color, $alpha);
+}
