@@ -2,8 +2,8 @@ import React from 'react';
 
 const Category = (props) => {
   return (
-    <div className="input-container">
-      <h2>{props.title}</h2>
+    <div className={`input-container ${props.title}`}>
+      <h2 className="input-container__title">{props.title}</h2>
       {props.children}
     </div>
   )

@@ -33,13 +33,22 @@ button {
 }
 
 .wrapper {
-  @include flexCenter();
-  flex-direction: column;
+  // @include flexCenter();
+  // flex-direction: column;
+  display: grid;
+  grid-gap: 1em;
   text-align: center;
 
   max-width: 1200px;
-  width: 92%;
+  // width: 92%;
   margin: 0 auto;
+}
+
+h1  {
+  @include fontDisplay(34, $weight: 400, $color: $black);
+  width: 100%;
+  margin: 0;
+  background: $grey;
 }
 
 .user-btn {
@@ -55,4 +64,11 @@ button {
     border: none;
     text-align: var(--btnTextAlign);
   }
+}
+
+.inputs {
+  display: grid;
+  // grid-auto-rows: ;
+  grid-gap: 1em;
+  width: 100%;
 }
